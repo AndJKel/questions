@@ -1,0 +1,35 @@
+---
+title: "markr demo"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, out.width = "75%")
+library(markr)
+```
+
+```{r}
+# all data in one table (csv or excel)
+marks <- read_marks("gpra_info.csv")
+```
+
+
+```{r, echo = FALSE}
+name <- marks[2, ]
+```
+
+
+
+```{r}
+# render the feedback files
+make_feedback(
+  marks = marks,
+  template = "HOPETemplate.Rmd",
+  filename = "fb/[name].html",
+  class_name = "Demo Class"
+)
+```

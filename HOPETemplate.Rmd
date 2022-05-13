@@ -1,0 +1,48 @@
+---
+title: "HOPETemplate"
+author: "Place"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  pdf_document: default
+  html_document:
+    df_print: kable
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,     # don't show code chunks
+  message = FALSE,  # don't show code messages
+  warning = FALSE,  # don't show code warnings
+  out.width = "75%" # show images at 75% page width
+)
+library(markr)
+```
+
+```{r, eval=F}
+# set eval=T to knit this example for debugging
+ma#rks <- demo_marks  # load your data as marks
+# convert the marks column to letter grades
+
+name <- marks[1, ]    # selects just the first row
+```
+
+### `r name$name`  
+
+## General Information
+
+This is a summarized report of the information obtained from your Certified Community Behavioral Health Clinic (CCBHC)  National Outcome Measures interview, which occurred on 2-5-2022.
+
+## Behavioral Health Diagnoses
+
+These are the diagnoses we submitted to SAMHSA as they are stated in your Treatment Plan at institution:
+
+Primary: `r name$dx1`
+
+Secondary: `r name$dx2`
+
+Tertiary: `r name$dx3`
+
+
+## Individual Feedback
+
+`r name$comments`
